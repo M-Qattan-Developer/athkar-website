@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Alexandria, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const arabic = Alexandria({
   subsets: ["arabic", "latin"],
@@ -49,10 +50,12 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${arabic.variable} ${english.variable} bg-[#08111f] text-white`}
-      >
-        {children}
-      </body>
+  className={`${arabic.variable} ${english.variable} bg-[#08111f] text-white`}
+>
+  <LanguageProvider>
+    {children}
+  </LanguageProvider>
+</body>
     </html>
   );
 }
