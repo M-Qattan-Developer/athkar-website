@@ -9,8 +9,14 @@ import {
 import ServerNetwork from "./ServerNetwork";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/data/translations";
 
 export default function Hero() {
+
+    const { language } = useLanguage();
+    const t = translations[language];
+
   return (
     <section className="relative overflow-hidden">
 
@@ -49,20 +55,18 @@ export default function Hero() {
 
           <p className="mt-8 max-w-xl text-xl leading-10 text-white/65">
 
-            أرسل ذكرًا مرة واحدة...
-            وبعد اعتماده ينتشر تلقائيًا إلى جميع السيرفرات
-            المشاركة دون إظهار اسمك.
+{t.heroDescription}
 
           </p>
 
           <div className="mt-12 flex flex-wrap gap-5">
 
   <Button href="#">
-    إضافة البوت
+   {t.heroButton}
   </Button>
 
   <Button href="#how" variant="outline">
-    شاهد كيف يعمل
+  {t.heroVideo}
   </Button>
 
 </div>
