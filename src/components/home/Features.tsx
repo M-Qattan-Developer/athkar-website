@@ -1,5 +1,6 @@
 "use client";
 
+import { features } from "@/data/features";
 import { motion } from "framer-motion";
 import {
   IconShieldCheck,
@@ -7,29 +8,6 @@ import {
   IconClock,
   IconLock,
 } from "@tabler/icons-react";
-
-const features = [
-  {
-    icon: IconShieldCheck,
-    title: "مراجعة قبل النشر",
-    desc: "كل ذكر يمر على إدارة البوت قبل وصوله لباقي السيرفرات.",
-  },
-  {
-    icon: IconWorld,
-    title: "وصول لجميع السيرفرات",
-    desc: "الذكر الواحد قد يصل إلى آلاف الأعضاء عبر السيرفرات المشاركة.",
-  },
-  {
-    icon: IconClock,
-    title: "نشر تلقائي",
-    desc: "بعد الموافقة يتم النشر تلقائيًا دون تدخل.",
-  },
-  {
-    icon: IconLock,
-    title: "خصوصية كاملة",
-    desc: "لا يظهر اسم المرسل أو أي معلومات عنه.",
-  },
-];
 
 export default function Features() {
   return (
