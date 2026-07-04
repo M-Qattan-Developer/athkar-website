@@ -1,6 +1,7 @@
 "use client";
 
 import SectionTitle from "./SectionTitle";
+import Container from "@/components/ui/Container";
 
 const faq = [
   {
@@ -23,28 +24,36 @@ const faq = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="container py-32">
-      <SectionTitle
-        badge="الأسئلة الشائعة"
-        title="كل ما تحتاج معرفته"
-      />
+    <section id="faq" className="py-32">
 
-      <div className="space-y-5">
-        {faq.map((item) => (
-          <details
-            key={item.q}
-            className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
-          >
-            <summary className="cursor-pointer text-xl font-bold">
-              {item.q}
-            </summary>
+      <Container>
 
-            <p className="mt-5 leading-8 text-white/60">
-              {item.a}
-            </p>
-          </details>
-        ))}
-      </div>
+        <SectionTitle
+          badge="الأسئلة الشائعة"
+          title="كل ما تحتاج معرفته"
+        />
+
+        <div className="mx-auto max-w-3xl space-y-5">
+
+          {faq.map((item) => (
+            <details
+              key={item.q}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:border-[#C6A15B]/30"
+            >
+              <summary className="cursor-pointer text-xl font-bold">
+                {item.q}
+              </summary>
+
+              <p className="mt-5 leading-8 text-white/60">
+                {item.a}
+              </p>
+            </details>
+          ))}
+
+        </div>
+
+      </Container>
+
     </section>
   );
 }

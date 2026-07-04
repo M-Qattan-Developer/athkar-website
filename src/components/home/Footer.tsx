@@ -1,13 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import Container from "@/components/ui/Container";
 
 export default function Footer() {
   return (
     <footer className="mt-32 border-t border-white/10 bg-[#050b15]/70">
-      <div className="container py-16">
 
-        <div className="grid gap-12 md:grid-cols-3">
+      <Container>
 
+        <div className="grid gap-12 md:grid-cols-3 py-16">
+
+          {/* Brand */}
           <div>
 
             <div className="mb-5 flex items-center gap-3">
@@ -38,6 +41,7 @@ export default function Footer() {
 
           </div>
 
+          {/* Links */}
           <div>
 
             <h4 className="mb-5 font-bold">
@@ -47,17 +51,15 @@ export default function Footer() {
             <div className="space-y-3 text-white/60">
 
               <Link href="/">الرئيسية</Link><br />
-
               <Link href="/commands">الأوامر</Link><br />
-
               <Link href="/privacy">سياسة الخصوصية</Link><br />
-
               <Link href="/terms">الشروط</Link>
 
             </div>
 
           </div>
 
+          {/* Bot info */}
           <div>
 
             <h4 className="mb-5 font-bold">
@@ -67,9 +69,7 @@ export default function Footer() {
             <div className="space-y-3 text-white/60">
 
               <p>Slash Commands</p>
-
               <p>Arabic / English</p>
-
               <p>Discord Verified</p>
 
             </div>
@@ -78,13 +78,14 @@ export default function Footer() {
 
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-8 text-center text-white/40">
+        <div className="border-t border-white/10 pt-8 text-center text-white/40 pb-10">
 
           © {new Date().getFullYear()} Athkar. All Rights Reserved.
 
         </div>
 
-      </div>
+      </Container>
+
     </footer>
   );
 }

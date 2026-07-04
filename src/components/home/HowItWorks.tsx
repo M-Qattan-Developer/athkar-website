@@ -7,6 +7,7 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
+import Container from "@/components/ui/Container";
 
 const steps = [
   {
@@ -28,48 +29,52 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="container py-32">
+    <section id="how" className="py-32">
 
-      <SectionTitle
-        badge="كيف يعمل؟"
-        title="ثلاث خطوات فقط"
-        subtitle="عملية بسيطة وآمنة لنشر الأذكار بين جميع السيرفرات."
-      />
+      <Container>
 
-      <div className="grid gap-8 lg:grid-cols-3">
+        <SectionTitle
+          badge="كيف يعمل؟"
+          title="ثلاث خطوات فقط"
+          subtitle="عملية بسيطة وآمنة لنشر الأذكار بين جميع السيرفرات."
+        />
 
-        {steps.map((step, i) => {
+        <div className="grid gap-8 lg:grid-cols-3 place-items-center w-full">
 
-          const Icon = step.icon;
+          {steps.map((step, i) => {
 
-          return (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * .15 }}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-            >
+            const Icon = step.icon;
 
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#C6A15B]/15 text-[#C6A15B]">
-                <Icon size={34} />
-              </div>
+            return (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * .15 }}
+                className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl text-right"
+              >
 
-              <h3 className="mb-3 text-2xl font-bold">
-                {step.title}
-              </h3>
+                <div className="mb-6 flex h-16 w-16 items-center justify-center self-end rounded-2xl bg-[#C6A15B]/15 text-[#C6A15B]">
+                  <Icon size={34} />
+                </div>
 
-              <p className="leading-8 text-white/60">
-                {step.desc}
-              </p>
+                <h3 className="mb-3 text-2xl font-bold text-right">
+                  {step.title}
+                </h3>
 
-            </motion.div>
-          );
+                <p className="leading-8 text-white/60 text-right">
+                  {step.desc}
+                </p>
 
-        })}
+              </motion.div>
+            );
 
-      </div>
+          })}
+
+        </div>
+
+      </Container>
 
     </section>
   );

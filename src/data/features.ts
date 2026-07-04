@@ -14,7 +14,7 @@ export const features = [
   {
     icon: IconWorld,
     title: "انتشار واسع",
-    desc: "بعد الموافقة يصل الذكر لجميع السيرفرات المشاركة.",
+    desc: "بعد الموافقة يصل الذكر إلى جميع السيرفرات المشاركة.",
   },
   {
     icon: IconClock,
@@ -24,6 +24,6 @@ export const features = [
   {
     icon: IconLock,
     title: "خصوصية كاملة",
-    desc: "لا يظهر اسم المرسل أثناء النشر.",
+    desc: "لا يتم عرض اسم المرسل أثناء النشر.",
   },
 ];

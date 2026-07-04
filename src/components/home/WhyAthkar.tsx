@@ -7,6 +7,7 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 import SectionTitle from "./SectionTitle";
+import Container from "@/components/ui/Container";
 
 const items = [
   {
@@ -33,37 +34,47 @@ const items = [
 
 export default function WhyAthkar() {
   return (
-    <section className="container py-32">
-      <SectionTitle
-        badge="المميزات"
-        title="لماذا Athkar؟"
-        subtitle="مصمم لنشر الأذكار بطريقة آمنة وسهلة بين مجتمعات Discord."
-      />
+    <section className="py-32">
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {items.map((item) => {
-          const Icon = item.icon;
+      <Container>
 
-          return (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-[#C6A15B]/40 hover:bg-white/[0.07]"
-            >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#C6A15B]/15 text-[#C6A15B]">
-                <Icon size={34} />
+        <SectionTitle
+          badge="المميزات"
+          title="لماذا Athkar؟"
+          subtitle="مصمم لنشر الأذكار بطريقة آمنة وسهلة بين مجتمعات Discord."
+        />
+
+        <div className="grid gap-6 md:grid-cols-2 place-items-center w-full">
+
+          {items.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={item.title}
+                className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition duration-300 hover:border-[#C6A15B]/40 hover:bg-white/[0.07]"
+              >
+                <div className="mb-6 flex justify-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#C6A15B]/15 text-[#C6A15B]">
+                    <Icon size={34} />
+                  </div>
+                </div>
+
+                <h3 className="mb-3 text-center text-2xl font-bold">
+                  {item.title}
+                </h3>
+
+                <p className="text-center leading-8 text-white/60">
+                  {item.desc}
+                </p>
               </div>
+            );
+          })}
 
-              <h3 className="mb-3 text-2xl font-bold">
-                {item.title}
-              </h3>
+        </div>
 
-              <p className="leading-8 text-white/60">
-                {item.desc}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+      </Container>
+
     </section>
   );
 }
