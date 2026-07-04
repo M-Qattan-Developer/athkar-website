@@ -10,10 +10,12 @@ import ServerNetwork from "./ServerNetwork";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { useTranslation } from "@/hooks/useTranslation";
+import { hero } from "@/data/hero";
 
 export default function Hero() {
 
-    const { t } = useTranslation();
+    const { language } = useTranslation();
+    const t = hero[language];
 
   return (
     <section className="relative overflow-hidden">
@@ -31,7 +33,7 @@ export default function Hero() {
 
             <Sparkles size={16} />
 
-            أول شبكة لنشر الأذكار بين سيرفرات Discord
+           {t.badge}
 
           </div>
 
@@ -53,18 +55,18 @@ export default function Hero() {
 
           <p className="mt-8 max-w-xl text-xl leading-10 text-white/65">
 
-{t.heroDescription}
+{t.description}
 
           </p>
 
           <div className="mt-12 flex flex-wrap gap-5">
 
   <Button href="#">
-   {t.heroButton}
+   {t.primary}
   </Button>
 
   <Button href="#how" variant="outline">
-  {t.heroVideo}
+  {t.secondary}
   </Button>
 
 </div>
