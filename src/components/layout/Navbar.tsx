@@ -5,6 +5,7 @@ import Link from "next/link";
 import { IconBrandDiscord, IconLanguage } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import LanguageSwitcher from "@/components/home/LanguageSwitcher";
+import { navigation } from "@/data/navigation";
 
 const links = [
   { name: "الرئيسية", href: "#" },
@@ -45,15 +46,15 @@ export default function Navbar() {
 
           <nav className="hidden items-center gap-10 lg:flex">
 
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="transition hover:text-[#C6A15B]"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navigation.map((item) => (
+  <a
+    key={item.name}
+    href={item.href}
+    className="transition hover:text-[#C6A15B]"
+  >
+    {item.name}
+  </a>
+))}
 
           </nav>
 
