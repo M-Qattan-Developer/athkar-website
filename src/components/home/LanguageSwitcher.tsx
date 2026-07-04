@@ -1,10 +1,10 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
 import { IconLanguage } from "@tabler/icons-react";
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage } = useTranslation();
 
   return (
     <button

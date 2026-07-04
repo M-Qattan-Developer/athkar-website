@@ -9,13 +9,11 @@ import {
 import ServerNetwork from "./ServerNetwork";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
-import { useLanguage } from "@/context/LanguageContext";
-import { translations } from "@/data/translations";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Hero() {
 
-    const { language } = useLanguage();
-    const t = translations[language];
+    const { t } = useTranslation();
 
   return (
     <section className="relative overflow-hidden">
