@@ -1,60 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import BackgroundGlow from "@/components/ui/BackgroundGlow";
+import {
+  ArrowRight,
+  PlayCircle,
+  Sparkles,
+} from "lucide-react";
+import ServerNetwork from "./ServerNetwork";
+import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[90vh] items-center overflow-hidden">
+    <section className="relative overflow-hidden">
 
-<BackgroundGlow />
-      <div className="absolute inset-0">
-
-        <div className="absolute right-20 top-32 h-72 w-72 rounded-full bg-[#C6A15B]/20 blur-3xl" />
-
-        <div className="absolute left-20 bottom-20 h-80 w-80 rounded-full bg-[#24384D]/60 blur-3xl" />
-
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-
-        <motion.h1
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: .8 }}
-          className="max-w-3xl text-6xl font-extrabold leading-tight"
-        >
-          كل ذكرٍ تشاركه...
-          <br />
-          قد يكون سببًا في أجرٍ مستمر.
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: .2, duration: .8 }}
-          className="mt-8 max-w-2xl text-xl leading-9 text-white/70"
-        >
-          Athkar هو بوت Discord يربط مجتمعات المسلمين لنشر الأذكار
-          بعد مراجعتها واعتمادها، لتصل إلى جميع السيرفرات المشاركة.
-        </motion.p>
+      <Container>
+  <div className="grid min-h-screen items-center gap-20 py-28 lg:grid-cols-2">
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: .5 }}
-          className="mt-12 flex gap-4"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: .7 }}
         >
-          <button className="rounded-xl bg-[#C6A15B] px-7 py-4 font-bold text-[#08111f] transition hover:scale-105">
-            إضافة البوت
-          </button>
 
-          <button className="rounded-xl border border-white/10 bg-white/5 px-7 py-4 backdrop-blur transition hover:bg-white/10">
-            تعرّف أكثر
-          </button>
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#C6A15B]/30 bg-[#C6A15B]/10 px-5 py-2 text-[#C6A15B]">
+
+            <Sparkles size={16} />
+
+            أول شبكة لنشر الأذكار بين سيرفرات Discord
+
+          </div>
+
+          <h1 className="text-5xl font-black leading-[1.15] lg:text-7xl">
+
+            كل ذكرٍ
+            <span className="text-[#C6A15B]">
+              {" "}تشاركه
+            </span>
+
+            <br />
+
+            قد يكون سببًا
+            <br />
+
+            في أجرٍ مستمر.
+
+          </h1>
+
+          <p className="mt-8 max-w-xl text-xl leading-10 text-white/65">
+
+            أرسل ذكرًا مرة واحدة...
+            وبعد اعتماده ينتشر تلقائيًا إلى جميع السيرفرات
+            المشاركة دون إظهار اسمك.
+
+          </p>
+
+          <div className="mt-12 flex flex-wrap gap-5">
+
+  <Button href="#">
+    إضافة البوت
+  </Button>
+
+  <Button href="#how" variant="outline">
+    شاهد كيف يعمل
+  </Button>
+
+</div>
+
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: .9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: .8 }}
+          className="flex justify-center"
+        >
+
+          <ServerNetwork />
+
         </motion.div>
 
       </div>
+</Container>
 
     </section>
   );
