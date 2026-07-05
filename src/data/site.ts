@@ -20,4 +20,11 @@ export const site = {
     "Islam",
     "ذكر",
   ],
+
+  // ✅ إضافات جديدة بدون حذف أي شيء
+  inviteUrl:
+    "https://discord.com/oauth2/authorize?client_id=1422708105690747000&permissions=2147871808&integration_type=0&scope=bot+applications.commands",
+
+  supportServer:
+    "https://discord.gg/6dp2atPQM6",
 };

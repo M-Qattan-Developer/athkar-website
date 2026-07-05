@@ -3,6 +3,8 @@ import { Alexandria, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
 import { LanguageProvider } from "@/context/LanguageContext";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/home/Footer";
 
 const arabic = Alexandria({
   subsets: ["arabic", "latin"],
@@ -54,6 +56,7 @@ export default function RootLayout({
 >
   <LanguageProvider>
     {children}
+    <Footer />
   </LanguageProvider>
 </body>
     </html>

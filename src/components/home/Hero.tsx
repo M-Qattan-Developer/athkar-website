@@ -7,6 +7,8 @@ import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { useTranslation } from "@/hooks/useTranslation";
 import { hero } from "@/data/hero";
+import { site } from "@/data/site";
+import Link from "next/link";
 
 export default function Hero() {
   const { language } = useTranslation();
@@ -33,7 +35,7 @@ export default function Hero() {
             </div>
 
             {/* TITLE */}
-            <h1 className="text-5xl font-black leading-[1.15] lg:text-7xl tracking-tight">
+            <h1 className="text-4xl font-black leading-[1.55] lg:text-5xl tracking-tight">
               كل ذكرٍ{" "}
               <span className="text-[#C6A15B]">تشاركه</span>
               <br />
@@ -50,9 +52,13 @@ export default function Hero() {
             {/* BUTTONS */}
             <div className="mt-10 flex flex-wrap gap-5 justify-center lg:justify-start">
 
-              <Button href="#">
-                {t.primary}
-              </Button>
+              <Button
+              href={site.inviteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             {t.primary}
+            </Button>
 
               <Button href="#how" variant="outline">
                 {t.secondary}

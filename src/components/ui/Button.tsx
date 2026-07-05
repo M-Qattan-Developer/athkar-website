@@ -5,12 +5,16 @@ type Props = {
   children: ReactNode;
   href?: string;
   variant?: "gold" | "outline";
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
 };
 
 export default function Button({
   children,
   href = "#",
   variant = "gold",
+  target,
+  rel,
 }: Props) {
   const styles =
     variant === "gold"
@@ -20,7 +24,9 @@ export default function Button({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-2xl px-8 py-4 font-bold transition ${styles}`}
+      target={target}
+      rel={rel}
+      className={`inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-bold transition ${styles}`}
     >
       {children}
     </Link>

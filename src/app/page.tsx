@@ -7,7 +7,6 @@ import HowItWorks from "@/components/home/HowItWorks";
 import WhyAthkar from "@/components/home/WhyAthkar";
 import FAQ from "@/components/home/FAQ";
 import CTA from "@/components/home/CTA";
-import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <WhyAthkar />
       <FAQ />
       <CTA />
-      <Footer />
     </>
   );
 }

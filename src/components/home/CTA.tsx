@@ -1,5 +1,7 @@
 import { IconBrandDiscord } from "@tabler/icons-react";
 import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import { site } from "@/data/site";
 
 export default function CTA() {
   return (
@@ -18,14 +20,16 @@ export default function CTA() {
             آمنة ومنظمة.
           </p>
 
-          <button className="mx-auto mt-10 flex items-center gap-3 rounded-2xl bg-[#C6A15B] px-8 py-4 font-bold text-[#08111f] transition hover:scale-105">
-
-            <IconBrandDiscord />
-
-            إضافة البوت
-
-          </button>
-
+        <div className="mt-10">
+          <Button
+             href={site.inviteUrl}
+             target="_blank"
+             rel="noopener noreferrer"
+           >
+             <IconBrandDiscord />
+             إضافة البوت
+          </Button>
+         </div>
         </div>
 
       </Container>

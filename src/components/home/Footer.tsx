@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { IconBrandDiscord } from "@tabler/icons-react";
 import Container from "@/components/ui/Container";
 
 export default function Footer() {
@@ -35,7 +36,7 @@ export default function Footer() {
             </div>
 
             <p className="leading-8 text-white/60">
-              منصة لنشر الأذكار بين مجتمعات Discord بطريقة آمنة،
+              بوت لنشر الأذكار بين مجتمعات Discord بطريقة آمنة،
               مع مراجعة جميع المشاركات قبل نشرها.
             </p>
 
@@ -50,11 +51,22 @@ export default function Footer() {
 
             <div className="space-y-3 text-white/60">
 
-              <Link href="/">الرئيسية</Link><br />
-              <Link href="/commands">الأوامر</Link><br />
-              <Link href="/privacy">سياسة الخصوصية</Link><br />
-              <Link href="/terms">الشروط</Link>
+<div className="flex flex-col gap-3">
 
+<Link href="/" scroll={true} className="hover:text-[#C6A15B] transition">
+    الرئيسية
+</Link>
+<Link href="/commands" scroll={true} className="hover:text-[#C6A15B] transition">
+    الأوامر
+</Link>
+<Link href="/privacy" scroll={true} className="hover:text-[#C6A15B] transition">
+    سياسة الخصوصية
+</Link>
+<Link href="/terms" scroll={true} className="hover:text-[#C6A15B] transition">
+    شروط الخدمة
+</Link>
+
+ </div>
             </div>
 
           </div>
@@ -74,11 +86,22 @@ export default function Footer() {
 
             </div>
 
+            {/* Support Server Button */}
+            <a
+              href="https://discord.gg/6dp2atPQM6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-[#C6A15B]/30 bg-[#C6A15B]/10 px-5 py-3 font-semibold text-[#C6A15B] transition-all duration-300 hover:border-[#C6A15B] hover:bg-[#C6A15B] hover:text-[#08111f] hover:scale-105"
+            >
+              <IconBrandDiscord size={20} />
+              الانضمام إلى سيرفر الدعم
+            </a>
+
           </div>
 
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-center text-white/40 pb-10">
+        <div className="border-t border-white/10 pt-8 pb-10 text-center text-white/40">
 
           © {new Date().getFullYear()} Athkar. All Rights Reserved.
 

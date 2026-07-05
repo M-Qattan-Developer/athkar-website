@@ -5,12 +5,30 @@ import Link from "next/link";
 import { IconBrandDiscord } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import LanguageSwitcher from "@/components/home/LanguageSwitcher";
-import { navigation } from "@/data/navigation";
 import Container from "@/components/ui/Container";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
-export default function Navbar() {
+const docsNavigation = [
+  {
+    name: "الرئيسية",
+    href: "/",
+  },
+  {
+    name: "الأوامر",
+    href: "/commands",
+  },
+  {
+    name: "سياسة الخصوصية",
+    href: "/privacy",
+  },
+  {
+    name: "شروط الخدمة",
+    href: "/terms",
+  },
+];
+
+export default function DocsNavbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -61,14 +79,14 @@ export default function Navbar() {
 
           {/* NAV LINKS */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navigation.map((item) => (
-              <a
+            {docsNavigation.map((item) => (
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-sm text-white/70 transition hover:text-[#C6A15B] hover:scale-105"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
