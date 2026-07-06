@@ -15,7 +15,7 @@ export default function LanguageSwitcher() {
     >
       <IconLanguage size={18} />
 
-      {language === "ar" ? "العربية" : "English"}
+      {language === "ar" ? "English" : "العربية"}
     </button>
   );
 }
