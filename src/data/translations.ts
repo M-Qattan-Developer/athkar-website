@@ -8,6 +8,9 @@ export const translations = {
     features: "المميزات",
     how: "كيف يعمل",
     faq: "الأسئلة",
+
+    navbarBot: "إضافة البوت",
+    navbarSubtitle: "شارك الأذكار",
   },
 
   en: {
@@ -20,5 +23,8 @@ export const translations = {
     features: "Features",
     how: "How it Works",
     faq: "FAQ",
+
+    navbarBot: "Add Bot",
+    navbarSubtitle: "Share remembrance",
   },
 };

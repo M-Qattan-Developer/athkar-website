@@ -1,44 +1,14 @@
 "use client";
 
-import {
-  IconHelp,
-  IconPlus,
-  IconPlayerPlay,
-  IconSettings,
-  IconHeartHandshake,
-} from "@tabler/icons-react";
+import { useTranslation } from "@/hooks/useTranslation";
+import { commands } from "@/data/commands";
 import { motion } from "framer-motion";
 import DocsNavbar from "@/components/layout/DocsNavbar";
 
-const commands = [
-  {
-    icon: IconSettings,
-    name: "/set-azkar-channel",
-    desc: "تعيين قناة الأذكار في السيرفر",
-  },
-  {
-    icon: IconHeartHandshake,
-    name: "/support",
-    desc: "رابط سيرفر الدعم الفني",
-  },
-  {
-    icon: IconPlus,
-    name: "/invite",
-    desc: "إرسال رابط دعوة البوت",
-  },
-  {
-    icon: IconPlayerPlay,
-    name: "/ping",
-    desc: "عرض زمن استجابة البوت",
-  },
-  {
-    icon: IconHelp,
-    name: "/help",
-    desc: "شرح الأوامر الخاصة بالبوت",
-  },
-];
-
 export default function CommandsPage() {
+  const { language } = useTranslation();
+  const isArabic = language === "ar";
+
   return (
     <main className="min-h-screen py-32 flex justify-center">
 
@@ -50,15 +20,17 @@ export default function CommandsPage() {
           <div className="text-center mb-16">
 
             <span className="inline-flex mb-5 rounded-full border border-[#C6A15B]/30 bg-[#C6A15B]/10 px-5 py-2 text-sm text-[#C6A15B]">
-              Commands
+              {isArabic ? "الأوامر" : "Commands"}
             </span>
 
             <h1 className="text-5xl font-bold">
-              أوامر البوت
+             {isArabic ? "أوامر البوت" : "Bot Commands"}
             </h1>
 
             <p className="mt-6 text-white/60 leading-8">
-              جميع أوامر بوت Athkar الرسمية لإدارة الأذكار داخل Discord بسهولة.
+             {isArabic
+  ? "جميع أوامر بوت Athkar الرسمية لإدارة الأذكار داخل Discord بسهولة."
+  : "All official Athkar bot commands for managing remembrance in Discord with ease."}
             </p>
 
           </div>
@@ -90,7 +62,7 @@ export default function CommandsPage() {
                       {cmd.name}
                     </h3>
                     <p className="text-white/60 text-sm mt-1">
-                      {cmd.desc}
+                      {language === "ar" ? cmd.ar.desc : cmd.en.desc}
                     </p>
                   </div>
 

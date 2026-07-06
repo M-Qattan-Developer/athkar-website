@@ -1,9 +1,15 @@
+"use client";
+
+import { useTranslation } from "@/hooks/useTranslation";
+import { footer } from "@/data/footer";
 import Link from "next/link";
 import Image from "next/image";
 import { IconBrandDiscord } from "@tabler/icons-react";
 import Container from "@/components/ui/Container";
 
 export default function Footer() {
+    const { language } = useTranslation();
+    const t = footer[language];
   return (
     <footer className="mt-32 border-t border-white/10 bg-[#050b15]/70">
 
@@ -17,7 +23,7 @@ export default function Footer() {
             <div className="mb-5 flex items-center gap-3">
 
               <Image
-                src="/images/logo.png"
+                src="/images/logo-new2.png"
                 alt="Athkar"
                 width={46}
                 height={46}
@@ -36,8 +42,7 @@ export default function Footer() {
             </div>
 
             <p className="leading-8 text-white/60">
-              بوت لنشر الأذكار بين مجتمعات Discord بطريقة آمنة،
-              مع مراجعة جميع المشاركات قبل نشرها.
+             {t.description}
             </p>
 
           </div>
@@ -46,7 +51,7 @@ export default function Footer() {
           <div>
 
             <h4 className="mb-5 font-bold">
-              الموقع
+             {t.website}
             </h4>
 
             <div className="space-y-3 text-white/60">
@@ -54,16 +59,16 @@ export default function Footer() {
 <div className="flex flex-col gap-3">
 
 <Link href="/" scroll={true} className="hover:text-[#C6A15B] transition">
-    الرئيسية
+   {t.home}
 </Link>
 <Link href="/commands" scroll={true} className="hover:text-[#C6A15B] transition">
-    الأوامر
+   {t.commands}
 </Link>
 <Link href="/privacy" scroll={true} className="hover:text-[#C6A15B] transition">
-    سياسة الخصوصية
+   {t.privacy}
 </Link>
 <Link href="/terms" scroll={true} className="hover:text-[#C6A15B] transition">
-    شروط الخدمة
+   {t.terms}
 </Link>
 
  </div>
@@ -75,14 +80,14 @@ export default function Footer() {
           <div>
 
             <h4 className="mb-5 font-bold">
-              البوت
+             {t.bot}
             </h4>
 
             <div className="space-y-3 text-white/60">
 
               <p>Slash Commands</p>
               <p>Arabic / English</p>
-              <p>Discord Verified</p>
+              <p>Discord Bot</p>
 
             </div>
 
@@ -94,7 +99,7 @@ export default function Footer() {
               className="mt-8 inline-flex items-center gap-2 rounded-xl border border-[#C6A15B]/30 bg-[#C6A15B]/10 px-5 py-3 font-semibold text-[#C6A15B] transition-all duration-300 hover:border-[#C6A15B] hover:bg-[#C6A15B] hover:text-[#08111f] hover:scale-105"
             >
               <IconBrandDiscord size={20} />
-              الانضمام إلى سيرفر الدعم
+             {t.support}
             </a>
 
           </div>
@@ -103,7 +108,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 pb-10 text-center text-white/40">
 
-          © {new Date().getFullYear()} Athkar. All Rights Reserved.
+          © {new Date().getFullYear()} Athkar. {t.copyright}
 
         </div>
 

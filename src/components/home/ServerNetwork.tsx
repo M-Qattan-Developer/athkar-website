@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from "@/hooks/useTranslation";
 import { motion } from "framer-motion";
 import {
   IconServer2,
@@ -8,18 +9,50 @@ import {
 } from "@tabler/icons-react";
 
 const servers = [
-  { name: "سيرفر A", x: 190, y: -10 },
-  { name: "سيرفر B", x: -70, y: 200 },
-  { name: "سيرفر C", x: 490, y: 110 },
-  { name: "سيرفر D", x: 110, y: 490 },
-  { name: "سيرفر E", x: 500, y: 450 },
+  {
+    ar: "سيرفر A",
+    en: "Server A",
+    x: 190,
+    y: -10,
+  },
+  {
+    ar: "سيرفر B",
+    en: "Server B",
+    x: -70,
+    y: 200,
+  },
+  {
+    ar: "سيرفر C",
+    en: "Server C",
+    x: 490,
+    y: 110,
+  },
+  {
+    ar: "سيرفر D",
+    en: "Server D",
+    x: 110,
+    y: 490,
+  },
+  {
+    ar: "سيرفر E",
+    en: "Server E",
+    x: 500,
+    y: 450,
+  },
 ];
 
 const CENTER = 260;
+const CENTER_EN = 300;
 
 export default function ServerNetwork() {
+    const { language } = useTranslation();
+
   return (
-    <div className="relative mx-auto w-full max-w-[520px] aspect-square">
+    <div
+  className={`relative mx-auto w-full max-w-[520px] aspect-square transition-all duration-500 ${
+    language === "ar" ? "" : "translate-x-8"
+  }`}
+>
 
       {/* glow */}
       <div className="absolute inset-0 rounded-full bg-[#C6A15B]/10 blur-[120px]" />
@@ -32,9 +65,9 @@ export default function ServerNetwork() {
         {servers.map((s, i) => (
           <line
             key={i}
-            x1={CENTER}
-            y1={CENTER}
-            x2={s.x}
+            x1={language === "ar" ? CENTER : CENTER_EN}
+y1={CENTER}
+            x2={language === "ar" ? s.x : 520 - s.x}
             y2={s.y}
             stroke="#C6A15B55"
             strokeWidth="2"
@@ -43,40 +76,46 @@ export default function ServerNetwork() {
         ))}
       </svg>
 
-{/* moving dots (FIXED SVG VERSION) */}
+{/* moving dots */}
 <svg
   className="absolute inset-0 h-full w-full"
   viewBox="0 0 520 520"
 >
-  {servers.map((s, i) => (
-    <motion.circle
-      key={i}
-      r="5"
-      fill="#C6A15B"
-      initial={{
-        cx: CENTER,
-        cy: CENTER,
-        opacity: 4,
-      }}
-      animate={{
-        cx: s.x,
-        cy: s.y,
-        opacity: [0, 1, 1, 0],
-      }}
-      transition={{
-        duration: 2.2,
-        delay: i * 0.3,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    />
-  ))}
+  {servers.map((s, i) => {
+    const endX = language === "ar" ? s.x : 520 - s.x;
+
+    return (
+      <g key={i}>
+        <circle r="5" fill="#C6A15B">
+          <animateMotion
+            dur="2.2s"
+            begin={`${i * 0.3}s`}
+            repeatCount="indefinite"
+            path={`M ${language === "ar" ? CENTER : 560 - CENTER} ${CENTER} L ${endX} ${s.y}`}
+          />
+
+          <animate
+            attributeName="opacity"
+            values="0;1;1;0"
+            dur="2.2s"
+            begin={`${i * 0.3}s`}
+            repeatCount="indefinite"
+          />
+        </circle>
+      </g>
+    );
+  })}
 </svg>
 
       {/* center (FIXED + responsive safe) */}
       <motion.div
         animate={{ scale: [1, 1.06, 1] }}
         transition={{ duration: 2, repeat: Infinity }}
+
+        style={{
+        left: language === "ar" ? "50%" : "58%",
+         }}
+
         className="
           absolute
           left-1/2 top-1/2
@@ -94,18 +133,22 @@ export default function ServerNetwork() {
         <IconSparkles size={30} className="mb-2 text-[#C6A15B]" />
 
         <h3 className="font-bold text-lg">
-          قيد المراجعة
-        </h3>
+  {language === "ar"
+    ? "قيد المراجعة"
+    : "Under Review"}
+</h3>
 
         <p className="mt-1 text-xs text-white/60">
-          سيتم نشر الذكر
-        </p>
+  {language === "ar"
+    ? "سيتم نشر الذكر"
+    : "Remembrance will be published"}
+</p>
       </motion.div>
 
       {/* servers (FIXED positioning bug) */}
       {servers.map((s, i) => (
         <motion.div
-          key={s.name}
+          key={s.ar}
           animate={{ y: [-4, 4, -4] }}
           transition={{
             duration: 3,
@@ -113,7 +156,9 @@ export default function ServerNetwork() {
             repeat: Infinity,
           }}
           style={{
-            left: `${(s.x / 650) * 100}%`,
+            left: `${
+           ((language === "ar" ? s.x : 520 - s.x) / 650) * 100
+          }%`,
             top: `${(s.y / 650) * 100}%`,
             transform: "translate(-50%, -50%)",
           }}
@@ -132,10 +177,14 @@ export default function ServerNetwork() {
             <IconCheck size={14} className="text-green-400" />
           </div>
 
-          <h4 className="text-sm font-bold">{s.name}</h4>
+          <h4 className="text-sm font-bold">
+  {language === "ar" ? s.ar : s.en}
+</h4>
 
           <p className="mt-1 text-[11px] text-white/50">
-            تم استلام الذكر
+           {language === "ar"
+  ? "تم استلام الذكر"
+  : "Remembrance received"}
           </p>
         </motion.div>
       ))}

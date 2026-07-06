@@ -8,10 +8,12 @@ import LanguageSwitcher from "@/components/home/LanguageSwitcher";
 import { navigation } from "@/data/navigation";
 import Container from "@/components/ui/Container";
 import { useEffect, useState } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 import { site } from "@/data/site";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { language, t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +49,7 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
-              src="/images/logo.png"
+              src="/images/logo-new2.png"
               alt="Athkar"
               width={48}
               height={48}
@@ -55,13 +57,15 @@ export default function Navbar() {
 
             <div className="leading-tight">
               <h2 className="text-xl font-bold">Athkar</h2>
-              <p className="text-xs text-white/50">Share remembrance</p>
+              <p className="text-xs text-white/50">
+                  {t.navbarSubtitle}
+               </p>
             </div>
           </Link>
 
           {/* NAV LINKS */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navigation.map((item) => (
+            {navigation[language].map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -84,7 +88,7 @@ export default function Navbar() {
               className="flex items-center gap-2 rounded-xl bg-[#C6A15B] px-4 py-2 text-sm font-bold text-[#08111f] transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#C6A15B]/20"
             >
               <IconBrandDiscord size={18} />
-              إضافة البوت
+             {t.navbarBot}
             </Link>
           </div>
         </div>

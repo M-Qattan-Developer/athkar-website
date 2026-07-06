@@ -1,24 +1,45 @@
 "use client";
 
 import { features } from "@/data/features";
+import { useTranslation } from "@/hooks/useTranslation";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 
 export default function Features() {
+    const { language } = useTranslation();
+    const isArabic = language === "ar";
   return (
     <section id="features" className="py-32">
 
       <Container>
+        
 
         <div className="mx-auto mb-14 max-w-3xl text-center">
 
+<div className="mb-6 flex justify-center">
+  <span className="inline-flex rounded-full border border-[#C6A15B]/30 bg-[#C6A15B]/10 px-5 py-2 text-sm text-[#C6A15B]">
+  {isArabic ? "المميزات" : "Features"}
+</span>
+</div>
+
+
           <h2 className="text-5xl font-bold">
-            لماذا <span className="text-[#C6A15B]">Athkar</span>؟
-          </h2>
+  {isArabic ? (
+    <>
+      لماذا <span className="text-[#C6A15B]">Athkar</span> ؟
+    </>
+  ) : (
+    <>
+      Why <span className="text-[#C6A15B]">Athkar</span> ?
+    </>
+  )}
+</h2>
 
           <p className="mt-5 text-lg leading-8 text-white/60">
-            صُمم لنشر الأذكار بين مجتمعات Discord بطريقة منظمة وآمنة وسريعة.
-          </p>
+  {isArabic
+    ? "صُمم لنشر الأذكار بين مجتمعات Discord بطريقة منظمة وآمنة وسريعة."
+    : "Built to spread remembrance across Discord communities in a safe, organized, and fast way."}
+</p>
 
         </div>
 
@@ -30,7 +51,7 @@ export default function Features() {
 
             return (
               <motion.div
-                key={item.title}
+                key={item.ar.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -47,12 +68,12 @@ export default function Features() {
                 </div>
 
                 <h3 className="mb-3 text-center text-2xl font-bold">
-                  {item.title}
-                </h3>
+  {language === "ar" ? item.ar.title : item.en.title}
+</h3>
 
                 <p className="text-center leading-8 text-white/60">
-                  {item.desc}
-                </p>
+  {language === "ar" ? item.ar.desc : item.en.desc}
+</p>
 
               </motion.div>
             );

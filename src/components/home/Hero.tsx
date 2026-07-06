@@ -14,6 +14,8 @@ export default function Hero() {
   const { language } = useTranslation();
   const t = hero[language];
 
+  const isArabic = language === "ar";
+
   return (
     <section className="relative overflow-hidden pb-24">
 
@@ -22,7 +24,9 @@ export default function Hero() {
 
           {/* LEFT SIDE */}
           <motion.div
-            className="text-center lg:text-right space-y-5"
+            className={`space-y-5 text-center ${
+            isArabic ? "lg:text-right" : "lg:text-left"
+            }`}
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
@@ -36,21 +40,25 @@ export default function Hero() {
 
             {/* TITLE */}
             <h1 className="text-4xl font-black leading-[1.55] lg:text-5xl tracking-tight">
-              كل ذكرٍ{" "}
-              <span className="text-[#C6A15B]">تشاركه</span>
-              <br />
-              قد يكون سببًا
-              <br />
-              في أجرٍ مستمر.
-            </h1>
+  {t.title1}{" "}
+  <span className="text-[#C6A15B]">
+    {t.highlight}
+  </span>
+  <br />
+  {t.title2}
+  <br />
+  {t.title3}
+</h1>
 
             {/* DESCRIPTION */}
-            <p className="mt-8 max-w-xl text-lg lg:text-xl leading-relaxed text-white/65 mx-auto lg:mx-0">
+            <p className={`mt-8 max-w-xl text-lg lg:text-xl leading-relaxed text-white/65 mx-auto ${
+              isArabic ? "lg:mx-0 lg:text-right" : "lg:mx-0 lg:text-left"
+            }`}>
               {t.description}
             </p>
 
             {/* BUTTONS */}
-            <div className="mt-10 flex flex-wrap gap-5 justify-center lg:justify-start">
+            <div className="mt-10 flex w-full flex-wrap gap-5 justify-center lg:justify-start">
 
               <Button
               href={site.inviteUrl}

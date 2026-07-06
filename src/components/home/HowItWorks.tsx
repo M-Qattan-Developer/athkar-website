@@ -1,43 +1,28 @@
 "use client";
 
-import {
-  IconUpload,
-  IconShieldCheck,
-  IconWorldShare,
-} from "@tabler/icons-react";
+import { steps } from "@/data/howItWorks";
+import { useTranslation } from "@/hooks/useTranslation";
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 import Container from "@/components/ui/Container";
 
-const steps = [
-  {
-    icon: IconUpload,
-    title: "يرسل العضو ذكرًا",
-    desc: "نص، صورة أو مقطع داخل روم الأذكار.",
-  },
-  {
-    icon: IconShieldCheck,
-    title: "تتم المراجعة",
-    desc: "إدارة البوت تعتمد الذكر قبل نشره.",
-  },
-  {
-    icon: IconWorldShare,
-    title: "ينتشر للجميع",
-    desc: "يصل لجميع السيرفرات المشاركة دون إظهار اسم المرسل.",
-  },
-];
-
 export default function HowItWorks() {
+    const { language } = useTranslation();
+    const isArabic = language === "ar";
   return (
     <section id="how" className="py-32">
 
       <Container>
 
         <SectionTitle
-          badge="كيف يعمل؟"
-          title="ثلاث خطوات فقط"
-          subtitle="عملية بسيطة وآمنة لنشر الأذكار بين جميع السيرفرات."
-        />
+  badge={isArabic ? "كيف يعمل؟" : "How it Works"}
+  title={isArabic ? "ثلاث خطوات فقط" : "Just Three Steps"}
+  subtitle={
+    isArabic
+      ? "عملية بسيطة وآمنة لنشر الأذكار بين جميع السيرفرات."
+      : "A simple and secure process for sharing remembrance across all servers."
+  }
+/>
 
         <div className="grid gap-8 lg:grid-cols-3 place-items-center w-full">
 
@@ -47,7 +32,7 @@ export default function HowItWorks() {
 
             return (
               <motion.div
-                key={step.title}
+                key={step.ar.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -59,12 +44,16 @@ export default function HowItWorks() {
                   <Icon size={34} />
                 </div>
 
-                <h3 className="mb-3 text-2xl font-bold text-right">
-                  {step.title}
+                <h3 className={`mb-3 text-2xl font-bold ${
+  isArabic ? "text-right" : "text-left"
+}`}>
+                  {language === "ar" ? step.ar.title : step.en.title}
                 </h3>
 
-                <p className="leading-8 text-white/60 text-right">
-                  {step.desc}
+                <p className={`leading-8 text-white/60 ${
+  isArabic ? "text-right" : "text-left"
+}`}>
+                  {language === "ar" ? step.ar.desc : step.en.desc}
                 </p>
 
               </motion.div>

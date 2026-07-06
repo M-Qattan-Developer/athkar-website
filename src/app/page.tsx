@@ -4,7 +4,6 @@ import Hero from "@/components/home/Hero";
 import Stats from "@/components/home/Stats";
 import Navbar from "@/components/layout/Navbar";
 import HowItWorks from "@/components/home/HowItWorks";
-import WhyAthkar from "@/components/home/WhyAthkar";
 import FAQ from "@/components/home/FAQ";
 import CTA from "@/components/home/CTA";
 
@@ -17,7 +16,6 @@ export default function Home() {
       <Stats />
       <Features />
       <HowItWorks />
-      <WhyAthkar />
       <FAQ />
       <CTA />
     </>
