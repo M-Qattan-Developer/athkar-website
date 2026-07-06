@@ -48,11 +48,17 @@ export default function ServerNetwork() {
     const { language } = useTranslation();
 
   return (
-    <div
-  className={`relative mx-auto w-full max-w-[520px] aspect-square transition-all duration-500 ${
-    language === "ar" ? "" : "translate-x-8"
-  }`}
->
+    <div className="flex justify-center overflow-visible px-4">
+  <div
+    className={`relative aspect-square w-[520px] max-w-none origin-top transition-all duration-500
+      scale-[0.48]
+      min-[380px]:scale-[0.55]
+      sm:scale-[0.68]
+      md:scale-[0.82]
+      lg:scale-100
+      ${language === "ar" ? "" : "translate-x-8"}
+    `}
+  >
 
       {/* glow */}
       <div className="absolute inset-0 rounded-full bg-[#C6A15B]/10 blur-[120px]" />
@@ -188,6 +194,7 @@ y1={CENTER}
           </p>
         </motion.div>
       ))}
-    </div>
+      </div>
+</div>
   );
 }
