@@ -84,29 +84,26 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Right */}
             <div className="flex shrink-0 items-center gap-3">
-              <LanguageSwitcher />
+  <LanguageSwitcher />
 
-              {/* Mobile Menu */}
-              <button
-                onClick={() => setMenuOpen(true)}
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 lg:hidden"
-              >
-                <IconMenu2 size={22} />
-              </button>
+  <Link
+    href={site.inviteUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hidden items-center gap-2 rounded-xl bg-[#C6A15B] px-4 py-2 text-sm font-bold text-[#08111f] transition hover:scale-105 hover:shadow-lg hover:shadow-[#C6A15B]/20 md:flex"
+  >
+    <IconBrandDiscord size={18} />
+    {t.navbarBot}
+  </Link>
 
-              {/* Desktop Button */}
-              <Link
-                href={site.inviteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden items-center gap-2 rounded-xl bg-[#C6A15B] px-4 py-2 text-sm font-bold text-[#08111f] transition hover:scale-105 hover:shadow-lg hover:shadow-[#C6A15B]/20 md:flex"
-              >
-                <IconBrandDiscord size={18} />
-                {t.navbarBot}
-              </Link>
-            </div>
+  <button
+    onClick={() => setMenuOpen(true)}
+    className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 lg:hidden"
+  >
+    <IconMenu2 size={22} />
+  </button>
+</div>
           </div>
         </Container>
       </motion.header>
