@@ -1,6 +1,6 @@
 export const docsNavbar = {
   ar: {
-    brand: "Share remembrance",
+    brand: "شارك الأذكار",
     addBot: "إضافة البوت",
 
     navigation: [
