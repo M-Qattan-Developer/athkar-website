@@ -17,7 +17,7 @@ export default function Hero() {
   const isArabic = language === "ar";
 
   return (
-    <section className="relative overflow-hidden pb-24">
+    <section className="relative overflow-x-hidden pb-24">
 
       <Container>
         <div className="grid items-center gap-16 lg:gap-24 pt-36 pb-24 lg:pt-44 lg:pb-28 lg:grid-cols-2">
