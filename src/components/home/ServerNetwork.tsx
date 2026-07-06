@@ -57,7 +57,7 @@ export default function ServerNetwork() {
   lg:scale-100
 ">
   <div
-    className={`relative aspect-square w-[500px] max-w-none origin-top transition-all duration-500
+    className={`relative aspect-square w-[500px] overflow-visible max-w-none origin-top transition-all duration-500
       ${language === "ar" ? "" : ""}
     `}
   >

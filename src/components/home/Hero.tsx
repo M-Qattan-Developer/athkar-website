@@ -83,7 +83,11 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative lg:-mr-24">
+            <div
+  className={`relative ${
+    isArabic ? "lg:-mr-24" : "lg:-ml-8"
+  }`}
+>
   <ServerNetwork />
 </div>
           </motion.div>
