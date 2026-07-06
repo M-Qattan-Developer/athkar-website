@@ -20,7 +20,7 @@ export default function Hero() {
     <section className="relative overflow-x-hidden pb-24">
 
       <Container>
-        <div className="grid items-center gap-16 lg:gap-24 pt-36 pb-24 lg:pt-44 lg:pb-28 lg:grid-cols-2">
+        <div className="grid items-center gap-16 lg:gap-24 pt-36 pb-24 lg:pt-44 lg:pb-28 lg:grid-cols-[minmax(0,1fr)_500px]">
 
           {/* LEFT SIDE */}
           <motion.div
@@ -78,12 +78,14 @@ export default function Hero() {
 
           {/* RIGHT SIDE */}
           <motion.div
-  className="flex w-full justify-center overflow-hidden lg:justify-end"
+  className="relative flex justify-center lg:justify-end overflow-visible"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <ServerNetwork />
+            <div className="relative lg:-mr-24">
+  <ServerNetwork />
+</div>
           </motion.div>
 
         </div>
