@@ -26,7 +26,11 @@ export default function CTA() {
       : "max-w-4xl text-3xl md:text-5xl"
   }`}
 >
-  {t.title}
+  {t.title.split("\n").map((line, index) => (
+  <span key={index} className="block">
+    {line}
+  </span>
+))}
 </h2>
 
           <p
