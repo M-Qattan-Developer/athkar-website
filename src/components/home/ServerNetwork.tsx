@@ -48,23 +48,17 @@ export default function ServerNetwork() {
     const { language } = useTranslation();
 
   return (
-    <div className="flex justify-center overflow-hidden px-4">
+    <div className="flex justify-center overflow-visible px-4">
   <div
-  className={`
-    relative
-    aspect-square
-    w-[500px]
-    origin-top
-    transition-all
-    duration-500
-
-    scale-[0.48]
-    min-[380px]:scale-[0.55]
-    sm:scale-[0.68]
-    md:scale-[0.82]
-    lg:scale-100
-  `}
->
+    className={`relative aspect-square w-[500px] scale-[0.75] sm:scale-[0.85] md:scale-100 max-w-none origin-top transition-all duration-500
+      scale-[0.48]
+      min-[380px]:scale-[0.55]
+      sm:scale-[0.68]
+      md:scale-[0.82]
+      lg:scale-100
+      ${language === "ar" ? "" : ""}
+    `}
+  >
 
       {/* glow */}
       <div className="absolute inset-0 rounded-full bg-[#C6A15B]/10 blur-[120px]" />

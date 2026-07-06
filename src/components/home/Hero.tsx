@@ -78,7 +78,7 @@ export default function Hero() {
 
           {/* RIGHT SIDE */}
           <motion.div
-            className="flex justify-center lg:justify-end"
+  className="flex w-full justify-center overflow-hidden lg:justify-end"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
