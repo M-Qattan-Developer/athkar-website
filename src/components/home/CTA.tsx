@@ -19,7 +19,13 @@ export default function CTA() {
 
         <div className="mx-auto max-w-4xl rounded-[40px] border border-[#C6A15B]/20 bg-gradient-to-br from-[#C6A15B]/10 to-white/5 p-14 text-center backdrop-blur-xl">
 
-          <h2 className="text-5xl font-bold">
+          <h2
+  className={`mx-auto font-bold leading-tight tracking-tight ${
+    isArabic
+      ? "max-w-3xl text-4xl md:text-5xl"
+      : "max-w-4xl text-3xl md:text-5xl"
+  }`}
+>
   {t.title}
 </h2>
 
