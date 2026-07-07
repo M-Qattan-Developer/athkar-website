@@ -17,10 +17,10 @@ export default function Hero() {
   const isArabic = language === "ar";
 
   return (
-    <section className="relative overflow-x-hidden pb-24">
+    <section className="relative overflow-hidden pb-24">
 
       <Container>
-        <div className="grid items-center gap-16 lg:gap-24 pt-36 pb-24 lg:pt-44 lg:pb-28 lg:grid-cols-[minmax(0,1fr)_500px]">
+        <div className="grid items-center gap-16 lg:gap-24 pt-36 pb-24 lg:pt-44 lg:pb-28 lg:grid-cols-2">
 
           {/* LEFT SIDE */}
           <motion.div
@@ -78,18 +78,12 @@ export default function Hero() {
 
           {/* RIGHT SIDE */}
           <motion.div
-  className="relative flex justify-center lg:justify-end overflow-visible"
+            className="flex justify-center lg:justify-end"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div
-  className={`relative ${
-    isArabic ? "lg:-mr-24" : "lg:-ml-8"
-  }`}
->
-  <ServerNetwork />
-</div>
+            <ServerNetwork />
           </motion.div>
 
         </div>
